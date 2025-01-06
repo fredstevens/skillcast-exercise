@@ -1,0 +1,5 @@
+<div class="title"> USER FORM </div> 
+<button (click)="buttonClicked()">Switch Customer</button> 
+<div>Current Customer Id: {{customerId}}</div>
+<app-user-form [customFields] = "customFields$ | async" [customerId] = "customerId"></app-user-form>
+

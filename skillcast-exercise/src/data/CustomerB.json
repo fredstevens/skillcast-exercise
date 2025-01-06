@@ -1,0 +1,8 @@
+[
+{"attribute":"firstname", "name":"First name", "type":"text", "required":true},
+{"attribute":"lastname", "name":"Last name", "type":"text", "required":true},
+{"attribute":"email", "name":"Email", "type":"text", "required":true},
+{"attribute":"jobtitle", "name":"Job Title", "type":"text", "required":true},
+{"attribute":"department", "name":"Department", "type":"text", "required":false}
+]
+    

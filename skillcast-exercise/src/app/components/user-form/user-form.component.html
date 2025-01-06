@@ -1,0 +1,11 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let customField of customFields">
+    <label [for]="customField.attribute">{{ customField.name }}{{ customField.required ? '*' : '' }}</label>
+    <input *ngIf= "customField.type === 'text'" [formControlName]= "customField.attribute" [id]= "customField.attribute" [required]= "customField.required" [type]= "customField.type"/>
+    <input *ngIf= "customField.type === 'date'" [formControlName]= "customField.attribute" [id]= "customField.attribute" [required]= "customField.required" [type]= "customField.type"/>
+    <div *ngIf="userForm.get (customField.attribute)?.invalid && userForm.get (customField.attribute)?.touched">
+      <small *ngIf="userForm.get (customField.attribute)?.hasError('required')"> {{ customField.name }} is required. </small>
+    </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">Submit</button>
+</form>
