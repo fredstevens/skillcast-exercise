@@ -32,7 +32,7 @@ export class UserFormComponent implements OnChanges {
     });
   }
 
-  GetValidators(field: any){
+  GetValidators(field: CustomField){
     var validators = [];
     if (field.required) { 
       validators.push(Validators.required) 
@@ -62,7 +62,12 @@ export class UserFormComponent implements OnChanges {
         attribute: key,
         value: value
       }));
-      this.service.SendFormData(formDataJson, this.customerId);
+      this.service.SendFormData(formDataJson, this.customerId).subscribe(
+        (response) => {
+          console.log(response.status);
+          console.log(response.description)
+        }
+      );
     }
   }
 }
